@@ -1,0 +1,55 @@
+<div class="w-full h-auto mb-20">
+
+ <div class="relative inline-block w-80 h-12 bg-green-300 rounded-full overflow-hidden">
+        <!-- Slider track -->
+        <div class="absolute left-0 right-0 top-0 bottom-0 bg-green-400 rounded-full slider-track"></div>
+        <!-- Slider handle -->
+        <div id="sliderHandle" class="absolute left-0 top-0 bg-white border-4 border-gray-300 rounded-full slider-handle"></div>
+    </div>
+</div>
+    <script>
+        // Get the slider handle element
+        const sliderHandle = document.getElementById('sliderHandle');
+
+        // Add event listeners for mouse and touch events
+        sliderHandle.addEventListener('mousedown', startSlide);
+        sliderHandle.addEventListener('touchstart', startSlide);
+
+        // Function to handle the start of sliding
+        function startSlide(event) {
+            event.preventDefault();
+            const startX = event.clientX || event.touches[0].clientX;
+            const handleStartX = sliderHandle.getBoundingClientRect().left;
+            
+            // Function to handle the sliding movement
+            function moveHandle(event) {
+                const currentX = event.clientX || event.touches[0].clientX;
+                const moveX = currentX - startX;
+                const handleNewX = Math.min(Math.max(handleStartX + moveX, 0), 270);
+                
+                sliderHandle.style.transform = `translateX(${handleNewX}px)`;
+            }
+
+            // Function to handle the end of sliding
+           function endSlide(event) {
+                document.removeEventListener('mousemove', moveHandle);
+                document.removeEventListener('mouseup', endSlide);
+                document.removeEventListener('touchmove', moveHandle);
+                document.removeEventListener('touchend', endSlide);
+
+                // Add a delay before returning to the starting position
+                setTimeout(() => {
+                    sliderHandle.style.transform = 'translateX(0)';
+                }, 300); // Adjust the delay time in milliseconds (2000ms = 2 seconds)
+            }
+
+            document.addEventListener('mousemove', moveHandle);
+            document.addEventListener('mouseup', endSlide);
+            document.addEventListener('touchmove', moveHandle);
+            document.addEventListener('touchend', endSlide);
+        }
+
+
+     
+    </script>
+-->

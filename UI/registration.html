@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/dist/output.css" rel="stylesheet" />
+    <link href="tailwind.config.js" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+
+    <style></style>
+  </head>
+
+  <body class="bg-black h-screen flex-row items-center justify-center">
+    <div class="bg-transparent p-6 rounded-lg shadow-md w-auto">
+      <h2 class="text-2xl justify-center flex font-semibold mb-4 text-red-600">
+        Registration Form
+      </h2>
+      <form>
+        <div class="mb-4 border-b-2 border-gray-600">
+          <label for="firstName" class="block text-gray-700"></label>
+          <input
+            type="text"
+            id="firstName"
+            name="firstName"
+            placeholder="First Name"
+            class="mt-1 w-full bg-transparent border-none placeholder:text-gray-600 text-gray-600"
+          />
+        </div>
+
+        <div class="mb-4 border-b-2 border-gray-600">
+          <label for="lastName" class="block text-gray-700"></label>
+          <input
+            type="text"
+            id="lastName"
+            name="lastName"
+            placeholder="last Name"
+            class="mt-1 w-full bg-transparent border-none placeholder:text-gray-600 text-gray-600"
+          />
+        </div>
+        <div class="mb-4 border-b-2 border-gray-600">
+          <label for="dob" class="block text-gray-600"></label>
+          <input
+            type="date"
+            id="dob"
+            name="dob"
+            placeholder="dob"
+            class="mt-1 w-full bg-transparent border-none text-gray-600 placeholder:text-gray-600 placeholder:bg-black"
+          />
+        </div>
+        <div class="mb-4 border-b-2 border-gray-600">
+          <label for="gender" class="block text-gray-700"></label>
+          <select
+            id="gender"
+            name="gender"
+            class="mt-1 border-none w-full bg-transparent text-gray-600"
+          >
+            <option value="male">Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="mb-4 border-b-2 border-gray-600">
+          <label for="caste" class="block text-gray-700"></label>
+          <select
+            id="caste"
+            name="caste"
+            placeholder="caste"
+            class="mt-1 border-none w-full bg-transparent text-gray-600"
+          >
+            <!-- Add options dynamically from backend -->
+            <option value="caste1">Caste</option>
+            <option value="caste1">Caste 1</option>
+            <option value="caste2">Caste 2</option>
+            <option value="caste3">Caste 3</option>
+          </select>
+        </div>
+        <div class="mb-4 border-b-2 border-gray-600">
+          <label for="subCaste" class="block text-gray-700"></label>
+          <select
+            id="subCaste"
+            name="subCaste"
+            placeholder="Caste"
+            class="h-auto mt-1 border-none w-full bg-transparent placeholder:text-gray-600 text-gray-600"
+          >
+            <!-- Add options dynamically from backend -->
+
+            <option class="w-full h-auto bg-transparent" value="subCaste1">
+              Sub Caste 1
+            </option>
+            <option class="w-full h-auto bg-transparent" value="subCaste2">
+              Sub Caste 2
+            </option>
+            <option class="w-full h-auto bg-transparent" value="subCaste3">
+              Sub Caste 3
+            </option>
+          </select>
+        </div>
+        <div class="mb-4 border-b-2 border-gray-600">
+          <label for="mobileNumber" class="block text-gray-700"></label>
+          <input
+            type="number"
+            id="mobileNumber"
+            name="mobileNumber"
+            placeholder="Mobile Number"
+            class="mt-1 border-none w-full bg-transparent placeholder:text-gray-600 text-gray-600"
+          />
+        </div>
+
+        <button
+          class="w-full h-auto bg-transparent hover:text-gray-600 border-b-2 border-blue-700 hover:border-blue-500 text-gray-300 font-bold flex justify-center py-2"
+        >
+          Get OTP
+        </button>
+
+        <div class="mb-4 mt-1 border-b-2 border-gray-600">
+          <label for="otp" class="block text-gray-700"></label>
+          <input
+            type="text"
+            id="otp"
+            name="otp"
+            placeholder="OTP"
+            class="mt-1 w-full bg-transparent border-none placeholder:text-gray-600 text-gray-600"
+          />
+        </div>
+        <div class="mb-4 mt-1 border-b-2 border-gray-600">
+          <label for="otp" class="block text-gray-700"></label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Password"
+            class="mt-1 w-full bg-transparent border-none placeholder:text-gray-600 text-gray-600"
+          />
+        </div>
+
+        <div class="flex justify-between">
+          <button
+            type="button"
+            class="bg-transparent border-b-2 border-red-700 hover:border-red-500 hover:text-gray-600 text-gray-300 font-bold py-2 px-4"
+          >
+            Login
+          </button>
+
+          <button
+            type="submit"
+            class="border-b-2 border-green-700 hover:border-green-500 text-gray-300 font-bold py-2 px-4 rounded"
+          >
+            Register
+          </button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

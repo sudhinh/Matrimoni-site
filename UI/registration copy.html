@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/dist/output.css" rel="stylesheet" />
+    <link href="tailwind.config.js" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+
+    <style></style>
+  </head>
+
+  <body class="bg-black flex items-center justify-center h-screen p-6">
+    <!-- First Section: Personal Information -->
+    <div
+      id="firstSection"
+      class="w-full h-auto container mx-auto p-4 max-w-lg border-2 border-gray-600 shadow rounded-lg"
+    >
+      <h2 class="text-2xl font-semibold mb-6 text-red-600">
+        Personal Information
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="relative">
+          <input
+            class="w-full h-auto input-field border-b border-gray-600 placeholder-gray-600 bg-transparent"
+            id="firstName"
+            type="text"
+            placeholder="First Name"
+          />
+          <div
+            class="absolute inset-y-0 right-0 flex items-center pr-3 text-green-600"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="m4.5 12.75 6 6 9-13.5"
+              />
+            </svg>
+          </div>
+        </div>
+
+        <!-- <div>
+          <label
+            class="block text-gray-700 text-sm font-bold mb-2"
+            for="middleName"
+          >
+            Middle Name
+          </label>
+          <input
+            class="w-full h-auto input-field bg-transparent"
+            id="middleName"
+            type="text"
+            placeholder=""
+          />
+        </div>-->
+        <div>
+          <label
+            class="block text-gray-700 text-sm font-bold mb-2"
+            for="lastName"
+          >
+          </label>
+          <input
+            class="w-full h-auto input-field bg-transparent placeholder-gray-600"
+            id="lastName"
+            type="text"
+            placeholder=" Last Name"
+          />
+        </div>
+        <div>
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="age">
+          </label>
+          <input
+            class="w-full h-auto input-field bg-transparent text-gray-600"
+            id="age"
+            type="date"
+            placeholder="Age"
+          />
+        </div>
+        <div>
+          <label
+            class="block text-gray-700 text-sm font-bold mb-2"
+            for="gender"
+          >
+          </label>
+          <select
+            class="w-full h-auto input-field bg-transparent text-gray-600"
+            id="gender"
+            aria-placeholder="Gender"
+          >
+            <option value="" disabled selected>Gender</option>
+            <option>Male</option>
+            <option>Female</option>
+          </select>
+        </div>
+      </div>
+      <!-- Next Button -->
+      <div class="mt-6 flex justify-center bg-blue-800 rounded-lg">
+        <button id="nextButton" class="px-5 py-2 btn-primary">Next</button>
+      </div>
+    </div>
+
+    <!-- Second Section: Mobile Number, OTP, Password -->
+    <div
+      id="secondSection"
+      class="container mx-auto p-4 max-w-lg bg-transparent shadow border-2 border-gray-700 rounded-lg hidden"
+    >
+      <h2 class="w-full h-auto text-xl font-semibold mb-6 text-red-600">
+        Mobile Number Verification
+      </h2>
+      <div class="grid grid-cols-1 gap-4">
+        <div>
+          <label
+            class="block text-gray-700 text-sm font-bold mb-2"
+            for="mobileNumber"
+          >
+            Mobile Number
+          </label>
+          <input
+            class="w-full h-auto input-field bg-transparent"
+            id="mobileNumber"
+            type="tel"
+            placeholder=" "
+          />
+        </div>
+        <div class="relative">
+          <input
+            class="w-full h-auto input-field border-b border-gray-600 placeholder-gray-600 bg-transparent"
+            id="firstName"
+            type="text"
+            placeholder="First Name"
+          />
+          <div
+            class="absolute inset-y-0 right-0 flex items-center pr-3 text-green-600"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="m4.5 12.75 6 6 9-13.5"
+              />
+            </svg>
+          </div>
+        </div>
+        <div>
+          <label
+            class="block text-gray-700 text-sm font-bold mb-2"
+            for="password"
+          >
+            Password
+          </label>
+          <input
+            class="w-full h-auto input-field bg-transparent"
+            id="password"
+            type="password"
+            placeholder=""
+          />
+        </div>
+        <div>
+          <label
+            class="block text-gray-700 text-sm font-bold mb-2"
+            for="confirmPassword"
+          >
+            Confirm Password
+          </label>
+          <input
+            class="w-full h-auto input-field bg-transparent"
+            id="confirmPassword"
+            type="password"
+            placeholder=""
+          />
+        </div>
+      </div>
+      <!-- Register and Go Back Button -->
+      <div class="mt-6 flex justify-between">
+        <button
+          id="goBackButton"
+          class="btn-secondary px-5 py-2 bg-blue-800 rounded-lg"
+        >
+          Go Back
+        </button>
+        <button
+          id="registerButton"
+          class="px-5 py-2 btn-primary bg-blue-800 rounded-lg"
+        >
+          Register
+        </button>
+      </div>
+    </div>
+
+    <!-- JavaScript to toggle visibility of sections -->
+    <script>
+      const firstSection = document.getElementById("firstSection");
+      const secondSection = document.getElementById("secondSection");
+      const nextButton = document.getElementById("nextButton");
+      const goBackButton = document.getElementById("goBackButton");
+
+      // Event listener for Next button
+      nextButton.addEventListener("click", function () {
+        firstSection.classList.add("hidden");
+        secondSection.classList.remove("hidden");
+      });
+
+      // Event listener for Go Back button
+      goBackButton.addEventListener("click", function () {
+        secondSection.classList.add("hidden");
+        firstSection.classList.remove("hidden");
+      });
+    </script>
+  </body>
+</html>

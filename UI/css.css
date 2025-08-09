@@ -1,0 +1,44 @@
+.Noti{
+      font-size: 9px;
+      font-weight: bold;
+    }
+    .Gre{
+      background-color: rgb(106, 243, 106);
+      
+    }
+    .Orn{
+      background-color: rgba(255, 68, 0, 0.884);
+    }
+    .Pin{
+      background-color: rgb(255, 149, 166);
+    }
+    .Blu{
+      background-color: rgba(36, 12, 255, 0.397);
+    }
+    .Red{
+      background-color: rgba(255, 0, 0, 0.548);
+    }
+   
+
+       .NavTxt {
+        color: rgba(142, 4, 57, 255);
+      }
+      
+    /* Additional custom styling */
+  .Galery{
+    width: 600px;
+    height: 300px;
+
+  }
+   /* Additional custom styles */
+        .slider-track {
+            height: 50px;
+        }
+        .slider-handle {
+            width: 50px;
+            height: 50px;
+            top: -19px;
+            cursor: pointer;
+            transition: transform 0.2s ease-out; /* Add transition for smooth movement */
+        
+        }

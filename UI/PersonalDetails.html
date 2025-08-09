@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/dist/output.css" rel="stylesheet" />
+    <link href="tailwind.config.js" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js"
+      defer
+    ></script>
+
+    <style>
+      .Noti {
+        font-size: 9px;
+        font-weight: bold;
+      }
+      .Gre {
+        background-color: rgb(106, 243, 106);
+      }
+      .Gree {
+        border-color: rgb(106, 243, 106);
+      }
+      .Orn {
+        background-color: rgba(255, 68, 0, 0.884);
+      }
+      .Pin {
+        background-color: rgb(255, 149, 166);
+      }
+      .Blu {
+        background-color: rgba(36, 12, 255, 0.397);
+      }
+      .Red {
+        background-color: rgba(255, 0, 0, 0.548);
+      }
+      .Bor {
+        border-color: rgba(255, 0, 0, 0.548);
+      }
+      .Txt {
+        color: rgba(255, 0, 0, 0.753);
+      }
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+      .modal-content {
+        background-color: #000000;
+        width: 80%;
+        max-width: 600px;
+        padding: 20px;
+        border-radius: 8px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .NavBg {
+        background-color: rgba(142, 4, 57, 255);
+      }
+      .NavTxt {
+        color: rgba(142, 4, 57, 255);
+      }
+      .nav-link {
+        text-decoration: none;
+        color: black;
+        transition: all 0.3s;
+      }
+      .nav-link:hover,
+      .nav-link:focus {
+        color: #4b5563;
+      }
+      .nav-link.active {
+        border-radius: 999px;
+        background-color: #4b5563;
+        color: white;
+      }
+    </style>
+  </head>
+  <body class="text-white bg-black select-none">
+    <!-- Photo Section -->
+
+    <div class="w-full h-auto">
+      <div class="w-full h-full relative">
+        <div
+          class="w-full absolute float-right bottom-0 bg-gradient-to-t from-black to-transparent p-3"
+        >
+          <div class="w-auto h-auto flex">
+            <span class="flex text-2xl text-gray-200">Sudhin H</span>
+
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-7 h-7 mt-1 ml-2 text-blue-800 font-extrabold"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z"
+              />
+            </svg>
+          </div>
+          <p class="flex text-sm font-bold leading-tight Txt">
+            M0001
+            <span
+              class="text-xs px-2 ml-2 border-l-2 border-gray-500 text-gray-400"
+            >
+              Last seen an hour ago</span
+            >
+          </p>
+        </div>
+
+        <button class="p-5 absolute">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6 hover:text-gray-900 fixed"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"
+            />
+          </svg>
+        </button>
+
+        <!-- <div class="p-3 rounded-full bg-black top-2 right-2 absolute">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z"
+            />
+          </svg>
+        </div>-->
+        <div
+          class="w-auto h-auto flex overflow-hidden overflow-x-auto space-x-1 bg-fixed hover:will-change-scroll"
+        >
+          <img
+            class="w-full h-full flex object-cover scroll-stop"
+            src="Images/Men photo.avif"
+          />
+          <img
+            class="w-full h-full flex object-cover"
+            src="Images/DulquarSalman73.jpg"
+          />
+          <img
+            class="w-full h-full flex object-cover"
+            src="Images/TOvino.jpg"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Phtoto Section ends-->
+
+    <!-----Matrimoni ID, share and save section----->
+
+    <div class="container">
+      <div class="w-full h-auto px-3">
+        <div class="w-full h-auto text-sm">
+          <div
+            class="w-full h-auto flex justify-between text-gray-500 border-gray-800 py-2"
+          >
+            <div class="w-full h-auto items-center text-2xl flex">
+              <span class="NavTxt font-bold"> M0001</span>
+            </div>
+            <div class="w-full h-auto gap-3 justify-end items-center flex">
+              <div class="p-2 rounded-full NavBg">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-6 h-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z"
+                  />
+                </svg>
+              </div>
+              <div class="p-2 rounded-full NavBg text-white">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-6 h-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M7.217 10.907a2.25 2.25 0 1 0 0 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186 9.566-5.314m-9.566 7.5 9.566 5.314m0 0a2.25 2.25 0 1 0 3.935 2.186 2.25 2.25 0 0 0-3.935-2.186Zm0-12.814a2.25 2.25 0 1 0 3.933-2.185 2.25 2.25 0 0 0-3.933 2.185Z"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-----Matrimoni ID, share and save section----->
+
+    <!--Height and Location details-->
+
+    <div class="container">
+      <div class="w-full h-auto px-3">
+        <div class="w-full h-auto text-sm">
+          <div
+            class="w-full h-auto flex justify-between text-gray-500 border-gray-800 py-2"
+          >
+            <div class="w-full h-auto items-center text-xs flex-col">
+              <label></label>
+              <p class="">26 Yrs, 5 ft 6 in / 170 cm</p>
+            </div>
+            <div class="w-full h-auto gap-1 justify-end items-center flex">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-5 h-5"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+                />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"
+                />
+              </svg>
+              <label>Palakkad, kerala</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Height and Location details-->
+
+    <!--Request view--->
+
+    <div class="container">
+      <div class="w-full h-auto p-3">
+        <div class="text-gray-400 leading-tight tracking-normal text-sm">
+          <span>You have recived a message from <span>Sudhin H</span></span>
+          <p>on 2 Feb 2024</p>
+        </div>
+        <div class="w-full h-auto mt-3 flex text-gray-300">
+          <button class="w-auto h-auto px-4 py-1 Bor border-b-2">
+            Decline
+          </button>
+
+          <!-- Button to trigger the modal -->
+          <button
+            id="openModal"
+            class="w-auto h-auto px-4 py-1 ml-4 Gree border-b-2"
+          >
+            View & Replay
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="h-auto flex items-center justify-center scroll-m-0">
+      <div id="modal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="block text-lg font-semibold mb-4"
+            >Lorem Ipsum Message</span
+          >
+          <p class="text-sm text-gray-600">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat.
+          </p>
+          <button
+            id="closeModal"
+            class="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Button to trigger the modal Ends-->
+
+    <!--Request ends--->
+
+    <!---->
+
+    <div class="w-full h-auto flex justify-evenly px-2 mt-6">
+      <div class="w-auto h-auto flex-row">
+        <div class="w-full h-auto flex justify-center">
+          <button class="p-3 rounded-full flex justify-center text-center Gre">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6 text-green-800"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z"
+              />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+              />
+            </svg>
+          </button>
+        </div>
+        <div class="w-full h-auto text-center justify-center flex pt-1">
+          <span class="Noti text-gray-400 tracking-wider">Viewed you</span>
+        </div>
+      </div>
+
+      <div class="w-auto h-auto flex-row">
+        <div class="w-full h-auto flex justify-center">
+          <button class="p-3 rounded-full flex justify-center text-center Orn">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6 text-orange-300"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25ZM6.75 12h.008v.008H6.75V12Zm0 3h.008v.008H6.75V15Zm0 3h.008v.008H6.75V18Z"
+              />
+            </svg>
+          </button>
+        </div>
+        <div class="w-full h-auto text-center justify-center flex pt-1">
+          <span class="Noti text-gray-400 tracking-wider">Shortlist</span>
+        </div>
+      </div>
+
+      <div class="w-auto h-auto flex-row">
+        <div class="w-full h-auto flex justify-center">
+          <button
+            class="p-3 rounded-full flex justify-center text-center Blu border-1 border-green-950 drop-shadow-2xl"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6 text-blue-500"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z"
+              />
+            </svg>
+          </button>
+        </div>
+        <div class="w-full h-auto text-center justify-center flex pt-1">
+          <span class="Noti text-gray-400 tracking-wider">Requests</span>
+        </div>
+      </div>
+
+      <div class="w-auto h-auto flex-row">
+        <div class="w-full h-auto flex justify-center">
+          <button class="p-3 rounded-full flex justify-center text-center Red">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6 text-red-500"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M20.25 3.75v4.5m0-4.5h-4.5m4.5 0-6 6m3 12c-8.284 0-15-6.716-15-15V4.5A2.25 2.25 0 0 1 4.5 2.25h1.372c.516 0 .966.351 1.091.852l1.106 4.423c.11.44-.054.902-.417 1.173l-1.293.97a1.062 1.062 0 0 0-.38 1.21 12.035 12.035 0 0 0 7.143 7.143c.441.162.928-.004 1.21-.38l.97-1.293a1.125 1.125 0 0 1 1.173-.417l4.423 1.106c.5.125.852.575.852 1.091V19.5a2.25 2.25 0 0 1-2.25 2.25h-2.25Z"
+              />
+            </svg>
+          </button>
+        </div>
+        <div class="w-full h-auto text-center justify-center flex pt-1">
+          <span class="Noti text-gray-400 tracking-wider">Call</span>
+        </div>
+      </div>
+    </div>
+
+    <!-----Description----->
+
+    <div class="container">
+      <div class="w-full h-auto pl-2 mt-4">
+        <div class="w-auto h-auto p-1">
+          <h1 class="w-24 py-2 Txt Bor border-b-2">Description</h1>
+          <p class="text-sm text-gray-500 mt-3">
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of type
+            and scrambled it to make a type specimen book.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-----Description  ends----->
+
+    <!---Personal details-->
+    <div class="container">
+      <div class="w-auto h-auto flex-col p-3">
+        <h1 class="py-2 Txt w-32 Bor border-b-2">His Basic Details</h1>
+        <div
+          class="w-full h-auto justify-evenly flex text-gray-500 text-sm leading-8"
+        >
+          <label class="w-1/2 h-auto flex justify-between"
+            >Name <span class="px-3">:</span></label
+          >
+          <label class="w-1/2 h-auto">Sudhin H</label>
+        </div>
+
+        <div
+          class="w-full h-auto justify-evenly flex text-gray-500 text-sm leading-8"
+        >
+          <label class="w-1/2 h-auto flex justify-between"
+            >Age <span class="px-3">:</span></label
+          >
+          <label class="w-1/2 h-auto">26 yrs</label>
+        </div>
+
+        <div
+          class="w-full h-auto justify-evenly flex text-gray-500 text-sm leading-8"
+        >
+          <label class="w-1/2 h-auto flex justify-between"
+            >Profile Created for <span class="px-3">:</span></label
+          >
+          <label class="w-1/2 h-auto">Son</label>
+        </div>
+
+        <div
+          class="w-full h-auto justify-evenly flex text-gray-500 text-sm leading-8"
+        >
+          <label class="w-1/2 h-auto flex justify-between"
+            >Gender <span class="px-3">:</span></label
+          >
+          <label class="w-1/2 h-auto">Male</label>
+        </div>
+
+        <div
+          class="w-full h-auto justify-evenly flex text-gray-500 text-sm leading-8"
+        >
+          <label class="w-1/2 h-auto flex justify-between"
+            >Height <span class="px-3">:</span></label
+          >
+          <label class="w-1/2 h-auto">5 ft 9 in/175 cm</label>
+        </div>
+
+        <div
+          class="w-full h-auto justify-evenly flex text-gray-500 text-sm leading-8"
+        >
+          <label class="w-1/2 h-auto flex justify-between"
+            >Weight <span class="px-3">:</span></label
+          >
+          <label class="w-1/2 h-auto">85 Kg</label>
+        </div>
+
+        <div
+          class="w-full h-auto justify-evenly flex text-gray-500 text-sm leading-8"
+        >
+          <label class="w-1/2 h-auto flex justify-between"
+            >Marial Status <span class="px-3">:</span></label
+          >
+          <label class="w-1/2 h-auto">Unmarried</label>
+        </div>
+
+        <div
+          class="w-full h-auto justify-evenly flex text-gray-500 text-sm leading-8"
+        >
+          <label class="w-1/2 h-auto flex justify-between"
+            >Mother Tounge <span class="px-3">:</span></label
+          >
+          <label class="w-1/2 h-auto">Malayalam</label>
+        </div>
+
+        <div
+          class="w-full h-auto justify-evenly flex text-gray-500 text-sm leading-8"
+        >
+          <label class="w-1/2 h-auto flex justify-between"
+            >Physical Status <span class="px-3">:</span></label
+          >
+          <label class="w-1/2 h-auto">Normal</label>
+        </div>
+
+        <!--  <div class="w-full h-auto justify-evenly flex">
+          <label class="w-64 bg-green-600 flex justify-between"
+            >Languages Known<span class="px-3">:</span></label
+          >
+          <label class="w-1/2 h-auto flex bg-red-500"
+            >Malayalam,English,Tamil,Telugu</label
+          >
+        </div>-->
+      </div>
+    </div>
+
+    <!---Personal details-->
+
+    <!---What does he do?--->
+
+    <div class="container">
+      <div class="w-full h-auto flex-col p-3">
+        <h1 class="w-40 Txt py-2 Bor border-b-2">What Does He Do?</h1>
+        <div
+          class="w-full h-auto justify-evenly flex text-gray-500 text-sm leading-8 mt-2"
+        >
+          <label class="w-1/2 h-auto flex justify-between"
+            >Education <span class="px-3">:</span></label
+          >
+          <label class="w-1/2 h-auto">BSC IT</label>
+        </div>
+
+        <div
+          class="w-full h-auto justify-evenly flex text-gray-500 text-sm leading-8"
+        >
+          <label class="w-1/2 h-auto flex justify-between"
+            >Employed in <span class="px-3">:</span></label
+          >
+          <label class="w-1/2 h-auto">Private Sector</label>
+        </div>
+
+        <div
+          class="w-full h-auto justify-evenly flex text-gray-500 text-sm leading-8"
+        >
+          <label class="w-1/2 h-auto flex justify-between"
+            >Occupation<span class="px-3">:</span></label
+          >
+          <label class="w-1/2 h-auto">IT Company</label>
+        </div>
+
+        <div
+          class="w-full h-auto justify-evenly flex text-gray-500 text-sm leading-8"
+        >
+          <label class="w-1/2 h-auto flex justify-between">
+            Occupation Details <span class="px-3">:</span>
+          </label>
+          <label class="w-1/2 h-auto">Software Engineer </label>
+        </div>
+
+        <div
+          class="w-full h-auto justify-evenly flex text-gray-500 text-sm leading-8"
+        >
+          <label class="w-1/2 h-auto flex justify-between"
+            >Work Location <span class="px-3">:</span></label
+          >
+          <label class="w-1/2 h-auto">Hyderabad</label>
+        </div>
+
+        <div
+          class="w-full h-auto justify-evenly flex text-gray-500 text-sm leading-8"
+        >
+          <label class="w-1/2 h-auto flex justify-between"
+            >Annual Income <span class="px-3">:</span></label
+          >
+          <label class="w-1/2 h-auto">Rs. 8 - 9 Lacks</label>
+        </div>
+      </div>
+    </div>
+
+    <!---What does he do?--->
+
+    <!---Where Does he stay--->
+
+    <div class="container">
+      <div class="w-full h-auto flex-col p-3">
+        <h1 class="w-40 Txt py-2 Bor border-b-2">Where Does He Stay?</h1>
+
+        <div
+          class="w-full h-auto justify-evenly flex text-gray-500 text-sm leading-8 mt-2"
+        >
+          <label class="w-1/2 h-auto flex justify-between"
+            >Country <span class="px-3">:</span></label
+          >
+          <label class="w-1/2 h-auto">India</label>
+        </div>
+
+        <div
+          class="w-full h-auto justify-evenly flex text-gray-500 text-sm leading-8"
+        >
+          <label class="w-1/2 h-auto flex justify-between"
+            >State <span class="px-3">:</span></label
+          >
+          <label class="w-1/2 h-auto">Kerala</label>
+        </div>
+
+        <div
+          class="w-full h-auto justify-evenly flex text-gray-500 text-sm leading-8"
+        >
+          <label class="w-1/2 h-auto flex justify-between"
+            >City<span class="px-3">:</span></label
+          >
+          <label class="w-1/2 h-auto">Palakkad</label>
+        </div>
+
+        <div
+          class="w-full h-auto justify-evenly flex text-gray-500 text-sm leading-8"
+        >
+          <label class="w-1/2 h-auto flex justify-between"
+            >Citizenship<span class="px-3">:</span></label
+          >
+          <label class="w-1/2 h-auto">India</label>
+        </div>
+      </div>
+    </div>
+
+    <!---Where does he Stay Ends--->
+
+    <!---His religious information--->
+
+    <div class="container">
+      <div class="w-full h-auto flex-col p-3">
+        <h1 class="w-56 Txt py-2 Bor border-b-2">His Religious Information</h1>
+        <div
+          class="w-full h-auto justify-evenly flex text-gray-500 text-sm leading-8 mt-2"
+        >
+          <label class="w-1/2 h-auto flex justify-between"
+            >Star <span class="px-3">:</span></label
+          >
+          <label class="w-1/2 h-auto">Ayilyam</label>
+        </div>
+
+        <div
+          class="w-full h-auto justify-evenly flex text-gray-500 text-sm leading-8"
+        >
+          <label class="w-1/2 h-auto flex justify-between"
+            >Rassi <span class="px-3">:</span></label
+          >
+          <label class="w-1/2 h-auto">Not sure</label>
+        </div>
+
+        <div
+          class="w-full h-auto justify-evenly flex text-gray-500 text-sm leading-8"
+        >
+          <label class="w-1/2 h-auto flex justify-between"
+            >Gothra<span class="px-3">:</span></label
+          >
+          <label class="w-1/2 h-auto">Not Sure</label>
+        </div>
+
+        <div
+          class="w-full h-auto justify-evenly flex text-gray-500 text-sm leading-8"
+        >
+          <label class="w-1/2 h-auto flex justify-between"
+            >Suddha Jathakam<span class="px-3">:</span></label
+          >
+          <label class="w-1/2 h-auto">No</label>
+        </div>
+
+        <div
+          class="w-full h-auto justify-evenly flex text-gray-500 text-sm leading-8"
+        >
+          <label class="w-1/2 h-auto flex justify-between"
+            >Horoscope<span class="px-3">:</span></label
+          >
+          <label class="w-1/2 h-auto"
+            ><button id="openModalButton" class="underline underline-offset-4">
+              Click Here
+            </button></label
+          >
+        </div>
+      </div>
+    </div>
+
+    <!---His religious information Ends--->
+
+    <!-- Button to trigger model for the horoscope view -->
+
+    <!-- Modal -->
+    <div id="imageModal" class="fixed z-10 inset-0 overflow-y-auto hidden">
+      <div class="flex items-center justify-center min-h-screen">
+        <div
+          class="modal-overlay absolute w-full h-full bg-gray-900 opacity-70"
+        ></div>
+
+        <!-- Modal content -->
+        <div class="w-auto h-full p-5 rounded shadow-lg z-50">
+          <div class="flex">
+            <!-- Close button -->
+
+            <!-- Image -->
+            <div class="w-auto h-full flex relative">
+              <img
+                id="modalImage"
+                src=""
+                alt="Modal Image"
+                class="w-ful h-full flex"
+              />
+
+              <button
+                id="closeModalButton"
+                class="Red p-2 text-3xl rounded-full leading-none focus:outline-none flex absolute -bottom-14 right-1/2"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-6 h-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6 18 18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Get elements
+      const openModalButton = document.getElementById("openModalButton");
+      const closeModalButton = document.getElementById("closeModalButton");
+      const imageModal = document.getElementById("imageModal");
+      const modalImage = document.getElementById("modalImage");
+
+      // Event listener to open the modal
+      openModalButton.addEventListener("click", function () {
+        // Show the modal
+        imageModal.classList.remove("hidden");
+        // Set the image source
+        modalImage.src = "Images/TOvino.jpg";
+      });
+
+      // Event listener to close the modal
+      closeModalButton.addEventListener("click", function () {
+        // Hide the modal
+        imageModal.classList.add("hidden");
+      });
+    </script>
+
+    <!-- Button to trigger model for the horoscope view -->
+
+    <!--Hobbies-->
+
+    <div class="container">
+      <div class="w-full h-auto flex-col p-3">
+        <h1 class="w-40 Txt py-2 Bor border-b-2">His Hobbies & Intrests</h1>
+
+        <div
+          class="w-full h-auto justify-evenly flex text-gray-500 text-sm leading-8 mt-2"
+        >
+          <label class="w-1/2 h-auto flex justify-between"
+            >Hobbies <span class="px-3">:</span></label
+          >
+          <label class="w-1/2 h-auto">Photography,Cooking </label>
+        </div>
+
+        <div
+          class="w-full h-auto justify-evenly flex text-gray-500 text-sm leading-8"
+        >
+          <label class="w-1/2 h-auto flex justify-between"
+            >Intrests <span class="px-3">:</span></label
+          >
+          <label class="w-1/2 h-auto">Traveling , Vehicle enthusiast</label>
+        </div>
+
+        <div
+          class="w-full h-auto justify-evenly flex text-gray-500 text-sm leading-8"
+        >
+          <label class="w-1/2 h-auto flex justify-between"
+            >City<span class="px-3">:</span></label
+          >
+          <label class="w-1/2 h-auto">Palakkad</label>
+        </div>
+
+        <div
+          class="w-full h-auto justify-evenly flex text-gray-500 text-sm leading-8"
+        >
+          <label class="w-1/2 h-auto flex justify-between"
+            >Citizenship<span class="px-3">:</span></label
+          >
+          <label class="w-1/2 h-auto">India</label>
+        </div>
+      </div>
+    </div>
+
+    <!--Hobbies Ends-->
+
+    <!--Habbits-->
+
+    <div class="container mb-12">
+      <div class="w-full h-auto flex-col p-3">
+        <h1 class="w-40 Txt py-2 Bor border-b-2">His Habbits</h1>
+
+        <div
+          class="w-full h-auto justify-evenly flex text-gray-500 text-sm leading-8 mt-2"
+        >
+          <label class="w-1/2 h-auto flex justify-between"
+            >Eating Habits <span class="px-3">:</span></label
+          >
+          <label class="w-1/2 h-auto">Not Specified</label>
+        </div>
+
+        <div
+          class="w-full h-auto justify-evenly flex text-gray-500 text-sm leading-8"
+        >
+          <label class="w-1/2 h-auto flex justify-between"
+            >Drinking Habits <span class="px-3">:</span></label
+          >
+          <label class="w-1/2 h-auto">Not Specified</label>
+        </div>
+
+        <div
+          class="w-full h-auto justify-evenly flex text-gray-500 text-sm leading-8"
+        >
+          <label class="w-1/2 h-auto flex justify-between"
+            >Smoking Habits<span class="px-3">:</span></label
+          >
+          <label class="w-1/2 h-auto">Not Specified</label>
+        </div>
+      </div>
+    </div>
+
+    <!--Habbits Ends-->
+
+    <!---Contact details-->
+    <button
+      id="openPopupButton"
+      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-20"
+    >
+      Open Pop-up
+    </button>
+
+    <div class="flex">
+      <div
+        id="popup"
+        class="flex-col fixed inset-x-0 bottom-1 items-center justify-center bg-gray-800 bg-opacity-70 hidden"
+      >
+        <div class="p-6 flex rounded-lg bg-white text-black">
+          <span
+            id="closePopup"
+            class="absolute cursor-pointer top-2 right-3 text-gray-600 hover:text-red-600 text-2xl"
+            >&times;</span
+          >
+          <p>
+            This is the content of the pop-up section. You can add any HTML
+            content here.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document
+        .getElementById("openPopupButton")
+        .addEventListener("click", function () {
+          document.getElementById("popup").classList.remove("hidden"); // Display the pop-up
+        });
+
+      document
+        .getElementById("closePopup")
+        .addEventListener("click", function () {
+          document.getElementById("popup").classList.add("hidden"); // Hide the pop-up
+        });
+    </script>
+
+    <!---Contact details Ends-->
+
+    <!-- Bottom Navigation Bar -->
+    <!-- Bottom Navigation Bar -->
+    <div
+      class="w-full h-auto flex fixed bottom-3 left-0 justify-center align-middle"
+    >
+      <div class="w-64 h-auto py-3 flex justify-around NavBg rounded-full">
+        <a
+          href="indexcopy.html"
+          class="nav-link"
+          class="w-10 h-10 flex justify-center active:border-2 active:bg-green-600 align-middle items-center hover:text-gray-900 text-black rounded-full"
+        >
+          <!-- Home Icon -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6 icon"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
+            />
+          </svg>
+        </a>
+
+        <a
+          href="#"
+          class="nav-link"
+          class="w-10 h-10 flex justify-center active:border-2 active:bg-green-600 align-middle items-center rounded-full text-black hover:text-gray-900"
+        >
+          <!-- Message Icon -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6 icon"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 0 1 .865-.501 48.172 48.172 0 0 0 3.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z"
+            />
+          </svg>
+        </a>
+
+        <a
+          href="listOfProfile.html"
+          class="nav-link"
+          class="w-10 h-10 flex justify-center active:border-2 active:bg-green-600 align-middle items-center text-black rounded-full hover:text-gray-900"
+        >
+          <!-- Search Icon -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6 icon"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+            />
+          </svg>
+        </a>
+
+        <a
+          href="#"
+          class="nav-link"
+          class="w-10 h-10 flex justify-center active:border-2 active:bg-green-600 align-middle items-center rounded-full text-black hover:text-gray-900"
+        >
+          <!-- Settings Icon -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6 icon"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.325.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 0 1 1.37.49l1.296 2.247a1.125 1.125 0 0 1-.26 1.431l-1.003.827c-.293.241-.438.613-.43.992a7.723 7.723 0 0 1 0 .255c-.008.378.137.75.43.991l1.004.827c.424.35.534.955.26 1.43l-1.298 2.247a1.125 1.125 0 0 1-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.47 6.47 0 0 1-.22.128c-.331.183-.581.495-.644.869l-.213 1.281c-.09.543-.56.94-1.11.94h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 0 1-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 0 1-1.369-.49l-1.297-2.247a1.125 1.125 0 0 1 .26-1.431l1.004-.827c.292-.24.437-.613.43-.991a6.932 6.932 0 0 1 0-.255c.007-.38-.138-.751-.43-.992l-1.004-.827a1.125 1.125 0 0 1-.26-1.43l1.297-2.247a1.125 1.125 0 0 1 1.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.086.22-.128.332-.183.582-.495.644-.869l.214-1.28Z"
+            />
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+            />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Bottom Navigation Bar -->
+
+    <!--Script for button trigger in View and replay--->
+
+    <script>
+      // Get references to the modal and the buttons
+      const modal = document.getElementById("modal");
+      const openModalBtn = document.getElementById("openModal");
+      const closeModalBtn = document.getElementById("closeModal");
+
+      // Function to open the modal
+      function openModal() {
+        modal.style.display = "block";
+      }
+
+      // Function to close the modal
+      function closeModal() {
+        modal.style.display = "none";
+      }
+
+      // Event listeners for opening and closing the modal
+      openModalBtn.addEventListener("click", openModal);
+      closeModalBtn.addEventListener("click", closeModal);
+    </script>
+
+    <!--Script for button trigger in View and replay Ends--->
+  </body>
+</html>

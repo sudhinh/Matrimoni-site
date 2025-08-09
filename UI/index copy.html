@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/dist/output.css" rel="stylesheet" />
+    <link href="tailwind.config.js" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <style>
+      /* Optional: Popup Styles */
+      #popup {
+        top: 30px; /* Adjust as needed */
+        right: -150px; /* Adjust as needed */
+        width: 200px; /* Adjust as needed */
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100">
+    <!-- Navbar -->
+    <nav
+      class="w-full h-auto bg-gray-800 text-white p-4 py-6 flex justify-between items-center"
+    >
+      <div class="w-auto h-auto font-bold tracking-widest text-2xl">LOGO</div>
+      <div class="w-64 h-8 flex items-center relative">
+        <input
+          type="text"
+          class="w-full h-8 bg-transparent border-t-0 border-r-0 border-l-0 pl-2 pr-8"
+          placeholder="Search"
+        />
+        <div class="text-gray-500 absolute right-0 mr-2">
+          <!-- Adjust right margin to position the icon -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+            />
+          </svg>
+        </div>
+      </div>
+
+      <div class="w-3/12 h-auto flex">
+        <div
+          class="w-auto h-auto border-r-2 border-l-2 justify-center border-gray-700 px-3 py-1"
+          id="mailButton"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6 hover:text-gray-500"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"
+            />
+          </svg>
+        </div>
+
+        <div class="border-r-2 border-gray-700 px-3 py-1">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6 hover:text-gray-500"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0"
+            />
+          </svg>
+        </div>
+        <div class="w-auto h-auto flex absolute -ml-20 mt-8 bg-black">
+          <div
+            class="w-full h-auto text-gray-600 hidden p-2 bg-red-600"
+            id="popup"
+          >
+            <div class="w-full h-auto bg-white">
+              jdhbvkajshjcshbjh dfhjdbhfjdfvbhjhbjfvhbhj
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container flex">
+      <div class="w-auto h-screen bg-gray-800 text-white flex p-4">
+        <div class="w-full h-auto flex gap-3 py-4">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+            />
+          </svg>
+          <label class="tracking-widest">Sudhin H</label>
+          <label class="text-gray-400">
+            <button>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 6.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 12.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 18.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5Z"
+                />
+              </svg>
+            </button>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Get the mail button and popup container
+      const mailButton = document.getElementById("mailButton");
+      const popup = document.getElementById("popup");
+
+      // Add event listener to the mail button
+      mailButton.addEventListener("click", function () {
+        // Toggle the visibility of the popup
+        popup.classList.toggle("hidden");
+      });
+    </script>
+  </body>
+</html>
